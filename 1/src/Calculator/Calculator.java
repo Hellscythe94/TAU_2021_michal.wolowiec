@@ -25,10 +25,9 @@ public class Calculator {
         square, squareRoot, oneDividedBy, cos, sin, tan ,log , rate, abs
     }
 
-    private Double num1, num2;
     private BiOperatorModes mode = BiOperatorModes.normal;
 
-    private Double calculateBiImpl() {
+    public Double calculateBiImpl(Double num1, Double num2) {
         if (mode == BiOperatorModes.normal) {
             return num2;
         }
@@ -54,32 +53,6 @@ public class Calculator {
 
         // never reach
         throw new Error();
-    }
-
-    public Double calculateBi(BiOperatorModes newMode, Double num) {
-        if (mode == BiOperatorModes.normal) {
-            num2 = 0.0;
-            num1 = num;
-            mode = newMode;
-            return NaN;
-        } else {
-            num2 = num;
-            num1 = calculateBiImpl();
-            mode = newMode;
-            return num1;
-        }
-    }
-
-    public Double calculateEqual(Double num) {
-        return calculateBi(BiOperatorModes.normal, num);
-    }
-
-    public Double reset() {
-        num2 = 0.0;
-        num1 = 0.0;
-        mode = BiOperatorModes.normal;
-
-        return NaN;
     }
 
     public Double calculateMono(MonoOperatorModes newMode, Double num) {
