@@ -23,6 +23,8 @@ public class CalculatorTest {
 	
 	@Test
 	public void TestAdding() {
+		Double result = 5.0;
+		assertEquals(result, calc.calculateBiImpl(Calculator.BiOperatorModes.add, 1.0, 4.0));
 	}
 
 }

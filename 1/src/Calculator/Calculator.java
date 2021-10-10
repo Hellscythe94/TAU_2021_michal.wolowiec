@@ -25,9 +25,7 @@ public class Calculator {
         square, squareRoot, oneDividedBy, cos, sin, tan ,log , rate, abs
     }
 
-    private BiOperatorModes mode = BiOperatorModes.normal;
-
-    public Double calculateBiImpl(Double num1, Double num2) {
+    public Double calculateBiImpl(BiOperatorModes mode, Double num1, Double num2) {
         if (mode == BiOperatorModes.normal) {
             return num2;
         }
