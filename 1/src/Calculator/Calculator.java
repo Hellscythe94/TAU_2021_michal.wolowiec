@@ -4,6 +4,8 @@ import static java.lang.Double.NaN;
 import static java.lang.Math.log10;
 import static java.lang.Math.pow;
 
+import Exceptions.WrongModeException;
+
 public class Calculator {
 
     public enum BiOperatorModes {
@@ -11,13 +13,10 @@ public class Calculator {
     }
 
     public enum MonoOperatorModes {
-        square, squareRoot, oneDividedBy, cos, sin, tan ,log , rate, abs
+        square, squareRoot, oneDividedBy, cos, sin, tan ,log , rate, abs, notImplementedMode
     }
 
-    public Double calculateBiImpl(BiOperatorModes mode, Double num1, Double num2) {
-        if (mode == BiOperatorModes.normal) {
-            return num2;
-        }
+    public Double calculateBiImpl(BiOperatorModes mode, Double num1, Double num2) throws WrongModeException {
         if (mode == BiOperatorModes.add) {
             if (num2 != 0) {
                 return num1 + num2;
@@ -39,10 +38,10 @@ public class Calculator {
         }
 
         // never reach
-        throw new Error();
+        throw new WrongModeException("Wrong Bi Mode", new Throwable());
     }
 
-    public Double calculateMono(MonoOperatorModes newMode, Double num) {
+    public Double calculateMono(MonoOperatorModes newMode, Double num) throws WrongModeException {
         if (newMode == MonoOperatorModes.square) {
             return num * num;
         }
@@ -79,7 +78,7 @@ public class Calculator {
         }
 
         // never reach
-        throw new Error();
+        throw new WrongModeException("Wrong Mono Mode", new Throwable());
     }
 
 }
