@@ -1,9 +1,7 @@
 package CalculatorTest;
 
 import org.junit.*;
-import static java.lang.Double.NaN;
 import static org.junit.Assert.*;
-import java.lang.Math;
 import Calculator.Calculator;
 
 public class CalculatorTest {
