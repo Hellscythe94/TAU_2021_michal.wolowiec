@@ -15,6 +15,26 @@ public class Calculator {
     public enum MonoOperatorModes {
         square, squareRoot, oneDividedBy, cos, sin, tan ,log , rate, abs, notImplementedMode
     }
+    
+    public Double simpleAdd(Double num1, Double num2) {
+    	return num1+num2;
+    }
+    
+    public Double simpleSubtract(Double num1, Double num2) {
+    	return num1-num2;
+    }
+    
+    public Double simpleMultiply(Double num1, Double num2) {
+    	return num1*num2;
+    }
+    
+    public Double simpleDivide(Double num1, Double num2) {
+    	return num1/num2;
+    }
+    
+    public Double simpleModulo(Double num1, Double num2) {
+    	return num1%num2;
+    }
 
     public Double calculateBiImpl(BiOperatorModes mode, Double num1, Double num2) throws WrongModeException {
         if (mode == BiOperatorModes.add) {
