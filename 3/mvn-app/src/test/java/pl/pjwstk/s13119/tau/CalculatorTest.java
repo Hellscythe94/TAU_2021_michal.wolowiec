@@ -9,22 +9,67 @@ import pl.pjwstk.s13119.tau.exceptions.*;
 import pl.pjwstk.s13119.tau.app.*;
 
 public class CalculatorTest {
-	private Calculator calc;
+	private static Calculator calc;
 	
 	@BeforeAll
-	public void setUp(){
+	public static void setUp(){
 		calc = new Calculator();
 		System.out.println("Before");
 	}
 	
 	@AfterAll
-	public void tearDown(){
+	public static void tearDown(){
 		calc = null;
 		System.out.println("After");
 	}
 	
+	
 	@Test
-	public void TestAdding() {
+	public void testSimpleAdding() {
+		Double result = 5.0;
+		assertEquals(result, calc.simpleAdd(2.0, 3.0));
+	}
+	
+	@Test
+	public void testSimpleSubtract() {
+		Double result = 5.0;
+		assertEquals(result, calc.simpleSubtract(10.0, 5.0));
+	}
+	
+	@Test
+	public void testSimpleMultiply() {
+		Double result = 10.0;
+		assertEquals(result, calc.simpleMultiply(2.0, 5.0));
+	}
+	
+	@Test
+	public void testSimpleDivide() {
+		Double result = 5.0;
+		assertEquals(result, calc.simpleDivide(25.0, 5.0));
+	}
+	
+	@Test 
+	public void testSimpleModulo() {
+		Double result = 2.0;
+		assertEquals(result, calc.simpleModulo(7.0, 5.0));
+	}
+	
+	@Test
+	public void testSimpleModulo2() {
+		Double result = 10.0%3.0;
+		assertEquals(result, calc.simpleModulo(10.0, 3.0));
+	}
+	
+	@Test
+	public void testSimpleAdd2() {
+		Double result = 6.0+18.0;
+		assertEquals(result, calc.simpleAdd(18.0, 6.0));
+	}
+	
+	
+	
+	@Test
+	public void testAdding() {
 		Double result = 5.0;
 		try {
 			assertEquals(result, calc.calculateBiImpl(Calculator.BiOperatorModes.add, 1.0, 4.0));
