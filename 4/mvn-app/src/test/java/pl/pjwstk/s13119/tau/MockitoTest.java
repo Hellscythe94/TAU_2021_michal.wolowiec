@@ -2,6 +2,7 @@ package pl.pjwstk.s13119.tau;
 
 import pl.pjwstk.s13119.tau.app.MagicCalculator;
 import pl.pjwstk.s13119.tau.app.Calculator;
+import pl.pjwstk.s13119.tau.app.Number;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -59,5 +60,15 @@ public class MockitoTest {
 		given(calc.simpleMultiply(2.0, 5.0)).willReturn(10.0);
 		Double result = calc.simpleMultiply(2.0, 5.0);
 		assertEquals(10.0, result);
+	}
+
+	@Test
+	public void testStub(){
+		MagicCalculator mCalc = mock(MagicCalculator.class);
+		Number stub = new Number();
+		stub.setMyNumber(15);
+		given(mCalc.maginAddmagic(5)).willReturn(5 + stub.getMyNumber());
+		int result = mCalc.maginAddmagic(5);
+		assertEquals(20, result);
 	}
 }
